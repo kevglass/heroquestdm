@@ -299,20 +299,20 @@
 <object id="Stairway" left="11.0" top="8.0" rotation="rightward" zorder="0.0" />
 <object id="Orc" left="25.0" top="8.0" rotation="downward" zorder="0.0" />
 <object id="TreasureChest" left="20.0" top="9.0" rotation="upward" zorder="0.0" />
-<object id="LetterB" left="21.0" top="9.0" rotation="downward" zorder="0.0" />
+<object id="LetterB" left="21.0" top="9.0" rotation="downward" zorder="0.0" onSearch="The treasure chest contains a potion of healing, which will recover up to 4 body points, and 50 gold coins."/>
 <object id="Door" left="24.0" top="9.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="2.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="3.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="Goblin" left="4.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="Goblin" left="24.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="25.0" top="10.0" rotation="downward" zorder="0.0" />
-<object id="LetterX" left="6.0" top="12.0" rotation="downward" zorder="0.0" />
+<object id="LetterX" left="6.0" top="12.0" rotation="downward" zorder="0.0" onDiscoverAction="discoverall" onDiscover="You have discovered Sir Ragnar. An alarm sounds. Place ALL remaining monsters, doors and furniture on the board. All doors are now open. Sir Ragnar should be moved by the player who opened the door. When that player takes his turn he also rolls one die to move Sir Ragnar. He must be moved back to the starting tile to escape. Sir Ragnar may not attack, but if he is attacked he may roll two dice for defence. Sir Ragnar has two body points left. Use the Evil Sorcerer figure to represent Sir Ragnar."/>
 <object id="Door" left="7.0" top="12.0" rotation="rightward" zorder="0.0" />
 <object id="Fimir" left="9.0" top="12.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="13.0" top="12.0" rotation="downward" zorder="0.0" />
 <object id="Goblin" left="17.0" top="13.0" rotation="downward" zorder="0.0" />
 <object id="TreasureChest" left="3.0" top="14.0" rotation="upward" zorder="0.0" />
-<object id="LetterA" left="4.0" top="14.0" rotation="downward" zorder="0.0" />
+<object id="LetterA" left="4.0" top="14.0" rotation="downward" zorder="0.0" onSearch="The treasure chest is a trap! Any player opening the chest without first searching for traps will lose one body point. The chest is empty." />
 <object id="SecretDoor" left="9.0" top="14.0" rotation="downward" zorder="0.0" />
 <object id="Orc" left="7.0" top="15.0" rotation="downward" zorder="0.0" />
 <object id="Table" left="6.0" top="16.0" rotation="leftward" zorder="0.0" />

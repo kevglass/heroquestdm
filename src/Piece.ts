@@ -11,12 +11,14 @@ class Piece {
 
     onSearch: string;
     onDiscover: string;
+    onDiscoverAction: string;
 
     constructor(node: Element, meta: Array<any>) {
         this.x = parseFloat(node.getAttribute("left")) - 1;
         this.y = parseFloat(node.getAttribute("top")) - 1;
         this.id = node.getAttribute("id");
         this.onDiscover = node.getAttribute("onDiscover");
+        this.onDiscoverAction = node.getAttribute("onDiscoverAction");
         this.onSearch = node.getAttribute("onSearch");
         this.img = "img/tiles/"+this.id+"_US.png";
 
@@ -57,7 +59,7 @@ class Piece {
         this.div.style.display = "none";
     }
 
-    search(dm) : string {
+    search(dm : HeroQuestDM) : string {
         var result : string = this.onSearch;
         delete this.onSearch;
 
@@ -69,7 +71,12 @@ class Piece {
         return result;
     }
 
-    discover(dm) : string {
+    discover(dm : HeroQuestDM) : string {
+        if (this.onDiscoverAction) {
+            if (this.onDiscoverAction === "discoverall") {
+                dm.discoverAll();
+            }
+        }
         if (this.id.indexOf("Letter") === 0) {
             // can't make letters visible - need to tie in the speech afterwards
             return this.onDiscover;

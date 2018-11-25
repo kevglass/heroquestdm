@@ -6,6 +6,7 @@ var Piece = /** @class */ (function () {
         this.y = parseFloat(node.getAttribute("top")) - 1;
         this.id = node.getAttribute("id");
         this.onDiscover = node.getAttribute("onDiscover");
+        this.onDiscoverAction = node.getAttribute("onDiscoverAction");
         this.onSearch = node.getAttribute("onSearch");
         this.img = "img/tiles/" + this.id + "_US.png";
         var pdata = meta[this.id];
@@ -50,6 +51,11 @@ var Piece = /** @class */ (function () {
         return result;
     };
     Piece.prototype.discover = function (dm) {
+        if (this.onDiscoverAction) {
+            if (this.onDiscoverAction === "discoverall") {
+                dm.discoverAll();
+            }
+        }
         if (this.id.indexOf("Letter") === 0) {
             // can't make letters visible - need to tie in the speech afterwards
             return this.onDiscover;
@@ -275,6 +281,11 @@ var HeroQuestDM = /** @class */ (function () {
         }
         var utterThis = new SpeechSynthesisUtterance(text);
         synth.speak(utterThis);
+    };
+    HeroQuestDM.prototype.discoverAll = function () {
+        for (var i = 0; i < this.rooms.length; i++) {
+            this.rooms[i].discover(this, false);
+        }
     };
     HeroQuestDM.prototype.discover = function (x, y) {
         var result = "";

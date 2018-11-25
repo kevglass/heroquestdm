@@ -34,7 +34,7 @@ class HeroQuestDM {
 
         document.getElementById("title").innerHTML = this.title;
         document.getElementById("wandering").innerHTML = "Wandering Monster: "+this.wandering;
-        
+
         var objects = this.map.getElementsByTagName("object");
         for (var i=0;i<objects.length;i++) {
             var object = objects[i];
@@ -105,6 +105,12 @@ class HeroQuestDM {
         
         var utterThis = new SpeechSynthesisUtterance(text);
         synth.speak(utterThis);
+    }
+
+    discoverAll(): any {
+        for (var i=0;i<this.rooms.length;i++) {
+            this.rooms[i].discover(this, false);
+        }
     }
 
     discover(x: number, y: number) : string {
