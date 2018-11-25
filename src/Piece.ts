@@ -84,6 +84,12 @@ class Piece {
         if (this.id.indexOf("SecretDoor") === 0) {
             return this.onDiscover;
         }
+        if (this.id.indexOf("Trap") >= 0) {
+            return this.onDiscover;
+        }
+        if (this.id.indexOf("FallingRock") >= 0) {
+            return this.onDiscover;
+        }
 
         this.div.style.display = "inline";
         return this.onDiscover;

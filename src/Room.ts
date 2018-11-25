@@ -13,19 +13,19 @@ class Room {
         this.height = data.height;
     }
 
-    contains(x: number, y:number) : boolean {
+    contains(x: number, y: number): boolean {
         return (x >= this.x) && (y >= this.y) && (x < this.x + this.width) && (y < this.y + this.height);
     }
 
-    discover(dm : HeroQuestDM, log: boolean) : void {
+    discover(dm: HeroQuestDM, log: boolean): void {
         if (this.discovered == true) {
             var result: string = "You find nothing of interest.";
 
             // search
-            for (var xp=0;xp<this.width;xp++) {
-                for (var yp=0;yp<this.height;yp++) {
-                    if (dm.getRoomAt(this.x+xp,this.y+yp) == this) {
-                        var searchMessage : string = dm.search(this.x+xp,this.y+yp);
+            for (var yp = 0; yp < this.height; yp++) {
+                for (var xp = 0; xp < this.width; xp++) {
+                    if (dm.getRoomAt(this.x + xp, this.y + yp) == this) {
+                        var searchMessage: string = dm.search(this.x + xp, this.y + yp);
                         if (searchMessage) {
                             result = searchMessage;
                         }
@@ -42,10 +42,10 @@ class Room {
 
             var result: string = "";
 
-            for (var xp=0;xp<this.width;xp++) {
-                for (var yp=0;yp<this.height;yp++) {
-                    if (dm.getRoomAt(this.x+xp,this.y+yp) == this) {
-                        var discoverMessage : string = dm.discover(this.x+xp,this.y+yp);
+            for (var yp = 0; yp < this.height; yp++) {
+                for (var xp = 0; xp < this.width; xp++) {
+                    if (dm.getRoomAt(this.x + xp, this.y + yp) == this) {
+                        var discoverMessage: string = dm.discover(this.x + xp, this.y + yp);
                         if (discoverMessage) {
                             result = discoverMessage;
                         }
@@ -60,16 +60,16 @@ class Room {
         }
     }
 
-    createDiv(dm: HeroQuestDM, parent, bx, by, tileWidth, tileHeight) : void {
-        var xp : number = bx + (this.x * tileWidth);
-        var yp : number = by + (this.y * tileHeight);
+    createDiv(dm: HeroQuestDM, parent, bx, by, tileWidth, tileHeight): void {
+        var xp: number = bx + (this.x * tileWidth);
+        var yp: number = by + (this.y * tileHeight);
 
-        var cell : HTMLElement = document.createElement("div");
-        cell.style.width = (tileWidth*this.width)+"px";
-        cell.style.height = (tileHeight*this.height)+"px";
-        cell.style.left = xp+"px";
-        cell.style.top = yp+"px";
-        cell.id = this.x+"-"+this.y+"-Room";
+        var cell: HTMLElement = document.createElement("div");
+        cell.style.width = (tileWidth * this.width) + "px";
+        cell.style.height = (tileHeight * this.height) + "px";
+        cell.style.left = xp + "px";
+        cell.style.top = yp + "px";
+        cell.id = this.x + "-" + this.y + "-Room";
         cell.style.overflow = "visible";
         cell.className = "cell";
         cell.style.cursor = "alias";

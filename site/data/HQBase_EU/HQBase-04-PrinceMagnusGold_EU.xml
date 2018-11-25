@@ -3,7 +3,7 @@
 "-//org.lightless//HeroScribe Quest 1.4//EN"
 "http://lightless.org/files/xml/quest-1.4.dtd">
 
-<quest name="Prince Magnus&apos; Gold" region="Europe" version="1.0" width="1" height="1">
+<quest name="Prince Magnus&apos; Gold" region="Europe" version="1.0" width="1" height="1" wandering="Fimir">
 <board>
 <dark left="1" top="1" width="1" height="1" />
 <dark left="1" top="2" width="1" height="1" />
@@ -273,7 +273,7 @@
 <object id="ChaosWarrior" left="12.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="Fimir" left="13.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="16.0" top="10.0" rotation="rightward" zorder="0.0" />
-<object id="LetterA" left="11.0" top="11.0" rotation="downward" zorder="0.0" />
+<object id="LetterA" left="11.0" top="11.0" rotation="downward" zorder="0.0" onDiscover="These are the three chests, each containing 250 gold coins worth of treasure. Each character may carry one treasure chest at a a time. When carrying a treasure chest, you may only roll one die for movement. You may choose to keep the treasure but you will be outlawed. You may never become a Champion."/>
 <object id="Orc" left="13.0" top="11.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="17.0" top="11.0" rotation="downward" zorder="0.0" />
 <object id="Orc" left="3.0" top="12.0" rotation="downward" zorder="0.0" />
@@ -296,5 +296,5 @@
 <object id="Orc" left="22.0" top="9.0" rotation="downward" zorder="1.0" />
 <object id="Orc" left="17.0" top="10.0" rotation="downward" zorder="1.0" />
 </board>
-<speech></speech>
+<speech intro="Three treasure chests have been stolen whilst being taken to the Emperor. A reward of 200 gold coins has been offered to anyone who can return the chest and ALL the gold. The theives are known to be a band of Orcs hiding in the Black Mountains. They are led by Gulthor, a Chaos Warrior."></speech>
 </quest>

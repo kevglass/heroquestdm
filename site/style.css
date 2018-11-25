@@ -113,9 +113,11 @@ a:hover {
     position:absolute;
     top: 45px;
     left: 20px;
-    width: 245px;
+    width: 235px;
     height: 385px;
     overflow-y: scroll;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .logentry {

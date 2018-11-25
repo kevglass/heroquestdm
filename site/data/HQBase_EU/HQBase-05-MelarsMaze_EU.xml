@@ -3,7 +3,7 @@
 "-//org.lightless//HeroScribe Quest 1.4//EN"
 "http://lightless.org/files/xml/quest-1.4.dtd">
 
-<quest name="Melar&apos;s Maze" region="Europe" version="1.0" width="1" height="1">
+<quest name="Melar&apos;s Maze" region="Europe" version="1.0" width="1" height="1" wandering="Zombie">
 <board>
 <dark left="6" top="11" width="1" height="1" />
 <dark left="6" top="12" width="1" height="1" />
@@ -228,7 +228,6 @@
 <dark left="26" top="18" width="1" height="1" />
 <dark left="26" top="19" width="1" height="1" />
 <object id="Door" left="6.0" top="1.0" rotation="downward" zorder="0.0" />
-<object id="Arrow" left="8.0" top="1.0" rotation="downward" zorder="0.0" />
 <object id="FallingRock" left="9.0" top="1.0" rotation="downward" zorder="0.0" />
 <object id="Mummy" left="24.0" top="1.0" rotation="downward" zorder="0.0" />
 <object id="Stairway" left="4.0" top="2.0" rotation="downward" zorder="0.0" />
@@ -236,12 +235,12 @@
 <object id="Door" left="1.0" top="3.0" rotation="rightward" zorder="0.0" />
 <object id="PitTrap" left="7.0" top="3.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="1.0" top="7.0" rotation="rightward" zorder="0.0" />
-<object id="LetterA" left="4.0" top="7.0" rotation="downward" zorder="0.0" />
+<object id="LetterA" left="4.0" top="9.0" rotation="downward" zorder="0.0" onSearch="You find Melar's Key. Upon touching it the key disappears, the throne slides sideways revealing a secret door"/>
 <object id="AlchemistsBench" left="8.0" top="7.0" rotation="leftward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="15.0" top="7.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="16.0" top="7.0" rotation="downward" zorder="0.0" />
 <object id="Throne" left="5.0" top="8.0" rotation="leftward" zorder="0.0" />
-<object id="SecretDoor" left="6.0" top="8.0" rotation="rightward" zorder="0.0" />
+<object id="SecretDoor" left="5.0" top="7.0" rotation="rightward" zorder="0.0" />
 <object id="Table" left="11.0" top="8.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="1.0" top="9.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="6.0" top="9.0" rotation="downward" zorder="0.0" />
@@ -249,14 +248,15 @@
 <object id="Door" left="3.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="8.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="9.0" top="10.0" rotation="downward" zorder="0.0" />
-<object id="LetterC" left="11.0" top="10.0" rotation="downward" zorder="0.0" />
+<object id="LetterC" left="11.0" top="10.0" rotation="downward" zorder="0.0" onSearch="You find the Talisman of Lore, a quest treasure. Take the appropriate card from the treasure deck." />
 <object id="Skeleton" left="13.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="SecretDoor" left="9.0" top="11.0" rotation="leftward" zorder="0.0" />
 <object id="Mummy" left="13.0" top="11.0" rotation="downward" zorder="0.0" />
 <object id="Zombie" left="14.0" top="11.0" rotation="downward" zorder="0.0" />
 <object id="Skeleton" left="15.0" top="11.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="26.0" top="11.0" rotation="downward" zorder="0.0" />
-<object id="LetterB" left="2.0" top="12.0" rotation="downward" zorder="0.0" />
+<object id="LetterB" left="2.0" top="12.0" rotation="downward" zorder="0.0" onDiscover="The gargoyle in this room is a statue made of stone. It does not move and cannot be attacked"/>
+<object id="LetterD" left="2.0" top="15.0" rotation="downward" zorder="0.0" onDiscover="On opening the door to this room the stone Gargoyle comes to life and attacks!"/>
 <object id="Gargoyle" left="5.0" top="12.0" rotation="downward" zorder="0.0" />
 <object id="PitTrap" left="10.0" top="12.0" rotation="downward" zorder="0.0" />
 <object id="Bookcase" left="11.0" top="12.0" rotation="downward" zorder="0.0" />
@@ -264,7 +264,6 @@
 <object id="Zombie" left="8.0" top="13.0" rotation="downward" zorder="0.0" />
 <object id="Skeleton" left="10.0" top="13.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="11.0" top="13.0" rotation="downward" zorder="0.0" />
-<object id="Arrow" left="4.0" top="13.87" rotation="downward" zorder="0.0" />
 <object id="DoubleBlockedSquare" left="13.0" top="14.0" rotation="downward" zorder="0.0" />
 <object id="PitTrap" left="4.0" top="15.0" rotation="downward" zorder="0.0" />
 <object id="Skeleton" left="5.0" top="16.0" rotation="downward" zorder="0.0" />

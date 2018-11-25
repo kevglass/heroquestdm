@@ -63,6 +63,12 @@ var Piece = /** @class */ (function () {
         if (this.id.indexOf("SecretDoor") === 0) {
             return this.onDiscover;
         }
+        if (this.id.indexOf("Trap") >= 0) {
+            return this.onDiscover;
+        }
+        if (this.id.indexOf("FallingRock") >= 0) {
+            return this.onDiscover;
+        }
         this.div.style.display = "inline";
         return this.onDiscover;
     };
@@ -144,8 +150,8 @@ var Room = /** @class */ (function () {
         if (this.discovered == true) {
             var result = "You find nothing of interest.";
             // search
-            for (var xp = 0; xp < this.width; xp++) {
-                for (var yp = 0; yp < this.height; yp++) {
+            for (var yp = 0; yp < this.height; yp++) {
+                for (var xp = 0; xp < this.width; xp++) {
                     if (dm.getRoomAt(this.x + xp, this.y + yp) == this) {
                         var searchMessage = dm.search(this.x + xp, this.y + yp);
                         if (searchMessage) {
@@ -162,8 +168,8 @@ var Room = /** @class */ (function () {
             this.div.style.cursor = "zoom-in";
             this.discovered = true;
             var result = "";
-            for (var xp = 0; xp < this.width; xp++) {
-                for (var yp = 0; yp < this.height; yp++) {
+            for (var yp = 0; yp < this.height; yp++) {
+                for (var xp = 0; xp < this.width; xp++) {
                     if (dm.getRoomAt(this.x + xp, this.y + yp) == this) {
                         var discoverMessage = dm.discover(this.x + xp, this.y + yp);
                         if (discoverMessage) {
@@ -301,7 +307,7 @@ var HeroQuestDM = /** @class */ (function () {
         for (var i = 0; i < this.pieces.length; i++) {
             if (this.pieces[i].id == "Door") {
                 var door = this.pieces[i];
-                if (door.rotation == 0) { // downards
+                if (door.rotation == 0) { // downwards
                     if ((door.x == x) && (door.y == y - 1)) {
                         door.discover(this);
                     }

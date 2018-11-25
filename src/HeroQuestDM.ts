@@ -130,7 +130,7 @@ class HeroQuestDM {
             if (this.pieces[i].id == "Door") {
                 var door = this.pieces[i];
 
-                if (door.rotation == 0) { // downards
+                if (door.rotation == 0) { // downwards
                     if ((door.x == x) && (door.y == y - 1)) {
                         door.discover(this);
                     }
