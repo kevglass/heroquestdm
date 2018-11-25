@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "module": "System",
+    "target": "ES5",
+    "sourceMap": true,
+    "outFile": "../site/dm.js",
+    "outDir": "../site/",
+    "moduleResolution": "classic"
+  },
+  "include": [
+    "**.ts"
+  ],
+  "compileOnSave": true
+}

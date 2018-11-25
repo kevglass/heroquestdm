@@ -1,0 +1,62 @@
+{
+    "SorcerersTable": {
+        "width" : 3,
+        "height" : 2
+    },
+    "Table": {
+        "width" : 3,
+        "height" : 2
+    },
+    "Stairway": {
+        "width" : 2,
+        "height" : 2
+    },
+    "AlchemistsBench": {
+        "width" : 3,
+        "height" : 2
+    },
+    "Cupboard": {
+        "width" : 3,
+        "height" : 1
+    },
+    "Fireplace": {
+        "width" : 3,
+        "height" : 1
+    },
+    "Bookcase": {
+        "width" : 3,
+        "height" : 1
+    },
+    "WeaponsRack": {
+        "width" : 3,
+        "height" : 1
+    },
+    "Rack": {
+        "width" : 2,
+        "height" : 3
+    },
+    "Tomb": {
+        "width" : 2,
+        "height" : 3
+    },
+    "DoubleBlockedSquare": {
+        "width" : 2,
+        "height" : 1
+    },
+    "Throne": {
+        "width" : 1,
+        "height" : 1
+    },
+    "TreasureChest": {
+        "width" : 1,
+        "height" : 1
+    },
+    "Door": {
+        "width" : 1,
+        "height" : 1
+    },
+    "SingleBlockedSquare": {
+        "width" : 1,
+        "height" : 1
+    }
+}
