@@ -3,7 +3,7 @@
 "-//org.lightless//HeroScribe Quest 1.4//EN"
 "http://lightless.org/files/xml/quest-1.4.dtd">
 
-<quest name="The Rescue of Sir Ragnar" region="Europe" version="1.0" width="1" height="1">
+<quest name="The Rescue of Sir Ragnar" region="Europe" version="1.0" width="1" height="1" wandering="Orc">
 <board>
 <dark left="1" top="1" width="1" height="1" />
 <dark left="1" top="2" width="1" height="1" />

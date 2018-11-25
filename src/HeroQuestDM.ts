@@ -19,7 +19,8 @@ class HeroQuestDM {
     placedStairs: boolean = false;
     intro: boolean = false;
     introText: string = "";
-    
+    wandering: string;
+
     constructor(id : string) {
         this.board = document.getElementById(id);
 
@@ -28,10 +29,12 @@ class HeroQuestDM {
         this.meta = this.loadJSON("data/piecesmeta.json");
         this.map = this.loadXML("data/HQBase_EU/"+urlParams.get("quest")+"_EU.xml");
         this.title = this.map.getElementsByTagName("quest")[0].getAttribute("name");
+        this.wandering = this.map.getElementsByTagName("quest")[0].getAttribute("wandering");
         this.introText = this.map.getElementsByTagName("speech")[0].getAttribute("intro");
 
         document.getElementById("title").innerHTML = this.title;
-
+        document.getElementById("wandering").innerHTML = "Wandering Monster: "+this.wandering;
+        
         var objects = this.map.getElementsByTagName("object");
         for (var i=0;i<objects.length;i++) {
             var object = objects[i];
