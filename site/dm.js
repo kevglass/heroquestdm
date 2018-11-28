@@ -6,6 +6,7 @@ var Piece = /** @class */ (function () {
         this.y = parseFloat(node.getAttribute("top")) - 1;
         this.id = node.getAttribute("id");
         this.onDiscover = node.getAttribute("onDiscover");
+        this.info = node.getAttribute("info");
         this.onDiscoverAction = node.getAttribute("onDiscoverAction");
         this.onSearch = node.getAttribute("onSearch");
         this.img = "img/tiles/" + this.id + "_US.png";
@@ -359,13 +360,28 @@ var HeroQuestDM = /** @class */ (function () {
         }
         else if (this.placedStairs === false) {
             this.placedStairs = true;
+            var startingPiece = null;
+            var stairway = false;
             for (var i = 0; i < this.pieces.length; i++) {
                 if (this.pieces[i].id == "Stairway") {
-                    var room = this.getRoomAt(this.pieces[i].x, this.pieces[i].y);
-                    room.discover(this, false);
+                    startingPiece = this.pieces[i];
+                    stairway = true;
                 }
             }
-            this.log("This is where your heroes begin, place them around the stairway on your game board.");
+            for (var i = 0; i < this.pieces.length; i++) {
+                if (this.pieces[i].info == "start") {
+                    startingPiece = this.pieces[i];
+                    stairway = false;
+                }
+            }
+            var room = this.getRoomAt(startingPiece.x, startingPiece.y);
+            room.discover(this, false);
+            if (stairway) {
+                this.log("This is where your heroes begin, place them around the stairway on your game board.");
+            }
+            else {
+                this.log("This is where your heroes begin, place them in the room.");
+            }
             this.waitForClick();
         }
         else if (this.intro === false) {

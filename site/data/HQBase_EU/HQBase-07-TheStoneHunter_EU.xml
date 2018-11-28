@@ -3,7 +3,7 @@
 "-//org.lightless//HeroScribe Quest 1.4//EN"
 "http://lightless.org/files/xml/quest-1.4.dtd">
 
-<quest name="The Stone Hunter" region="Europe" version="1.0" width="1" height="1">
+<quest name="The Stone Hunter" region="Europe" version="1.0" width="1" height="1" wandering="Mummy">
 <board>
 <dark left="1" top="1" width="1" height="1" />
 <dark left="1" top="2" width="1" height="1" />
@@ -304,14 +304,14 @@
 <object id="Skeleton" left="4.0" top="13.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="5.0" top="13.0" rotation="rightward" zorder="0.0" />
 <object id="ChaosWarrior" left="10.0" top="13.0" rotation="downward" zorder="0.0" />
-<object id="LetterA" left="11.0" top="13.0" rotation="downward" zorder="0.0" />
+<object id="LetterA" left="11.0" top="13.0" rotation="downward" zorder="0.0" onDiscover="All the chaos warriors in this adventure are made of stone and may roll an extra defence die." />
 <object id="LetterA" left="16.0" top="13.0" rotation="downward" zorder="0.0" />
 <object id="ChaosWarrior" left="17.0" top="13.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="3.0" top="14.0" rotation="downward" zorder="0.0" />
 <object id="DoubleBlockedSquare" left="13.0" top="14.0" rotation="downward" zorder="0.0" />
 <object id="AlchemistsBench" left="15.0" top="14.0" rotation="rightward" zorder="0.0" />
 <object id="Door" left="20.0" top="14.0" rotation="downward" zorder="0.0" />
-<object id="LetterB" left="23.0" top="15.0" rotation="downward" zorder="0.0" />
+<object id="LetterB" left="23.0" top="15.0" rotation="downward" zorder="0.0" onSearch="On searching for treasure you find Borin's armour. This is a Quest Treasure and you should take the appropriate card to keep"/>
 <object id="WeaponsRack" left="25.0" top="15.0" rotation="leftward" zorder="0.0" />
 <object id="Skeleton" left="3.0" top="16.0" rotation="downward" zorder="0.0" />
 <object id="Zombie" left="17.0" top="16.0" rotation="downward" zorder="0.0" />
@@ -324,10 +324,10 @@
 <object id="PitTrap" left="8.0" top="18.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="8.0" top="18.0" rotation="downward" zorder="0.0" />
 <object id="TreasureChest" left="15.0" top="18.0" rotation="upward" zorder="0.0" />
-<object id="LetterC" left="16.0" top="18.0" rotation="downward" zorder="0.0" />
+<object id="LetterC" left="16.0" top="18.0" rotation="downward" zorder="0.0" onDiscover="The Zombie in this room is Karlen. Whilst working on a Chaos spell he was consumed by the magic he created and was turned into a mindless Zombie" onSearch="The treasure chest contains 200 gold coins"/>
 <object id="Gargoyle" left="20.0" top="18.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="2.0" top="19.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="10.0" top="19.0" rotation="downward" zorder="0.0" />
 </board>
-<speech></speech>
+<speech intro="The Emperor's personal Wizard, Karlen, has disappeared. The Emperor fears that either he has been murdered or has succumbed to the lures of Chaos magic. You are to find out what has happened to Karlen and, if he is alive, bring him to safety. You will be paid 100 gold coins each upon returning."></speech>
 </quest>

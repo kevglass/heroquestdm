@@ -189,14 +189,30 @@ class HeroQuestDM {
         } else if (this.placedStairs === false) {
             this.placedStairs = true;
 
+            var startingPiece : Piece = null;
+            var stairway : boolean = false;
+
             for (var i=0;i<this.pieces.length;i++) {
                 if (this.pieces[i].id == "Stairway") {
-                    var room: Room = this.getRoomAt(this.pieces[i].x, this.pieces[i].y);
-                    room.discover(this, false);
+                    startingPiece = this.pieces[i];
+                    stairway = true;
+                }
+            }
+            for (var i=0;i<this.pieces.length;i++) {
+                if (this.pieces[i].info == "start") {
+                    startingPiece = this.pieces[i];
+                    stairway = false;
                 }
             }
 
-            this.log("This is where your heroes begin, place them around the stairway on your game board.");
+            var room: Room = this.getRoomAt(startingPiece.x, startingPiece.y);
+            room.discover(this, false);
+
+            if (stairway) {
+                this.log("This is where your heroes begin, place them around the stairway on your game board.");
+            } else {
+                this.log("This is where your heroes begin, place them in the room.");
+            }
             this.waitForClick();
         } else if (this.intro === false) {
             this.intro = true;
