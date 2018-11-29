@@ -83,6 +83,10 @@ class Piece {
             // can't make letters visible - need to tie in the speech afterwards
             return this.onDiscover;
         }
+        if (this.id.indexOf("Number") === 0) {
+            // can't make letters visible - need to tie in the speech afterwards
+            return this.onDiscover;
+        }
         if (this.id.indexOf("SecretDoor") === 0) {
             return this.onDiscover;
         }

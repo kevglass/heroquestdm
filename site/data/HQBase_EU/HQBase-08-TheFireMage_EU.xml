@@ -3,7 +3,7 @@
 "-//org.lightless//HeroScribe Quest 1.4//EN"
 "http://lightless.org/files/xml/quest-1.4.dtd">
 
-<quest name="The Fire Mage" region="Europe" version="1.0" width="1" height="1">
+<quest name="The Fire Mage" region="Europe" version="1.0" width="1" height="1" wandering="Fimir">
 <board>
 <dark left="6" top="2" width="1" height="1" />
 <dark left="6" top="3" width="1" height="1" />
@@ -188,7 +188,7 @@
 <object id="SingleBlockedSquare" left="2.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="5.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="9.0" top="10.0" rotation="downward" zorder="0.0" />
-<object id="LetterX" left="13.0" top="10.0" rotation="downward" zorder="0.0" />
+<object id="LetterX" left="3.0" top="4.0" rotation="downward" zorder="0.0" onDiscover="Balur is in this room, use the Chaos Sorcerer model to represent him. Balur has the following stats. Move 8. Attack 2. Defend 5. Mind 7. Body 1. Balur has three Firespells which he may use. Players can not use fire spells in this adventure. Balur also has the ability to walk through a wall once during the game. When he does he should be placed in the middle room."/>
 <object id="Door" left="16.0" top="10.0" rotation="rightward" zorder="0.0" />
 <object id="Door" left="20.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="SecretDoor" left="8.0" top="11.0" rotation="downward" zorder="0.0" />
@@ -199,7 +199,7 @@
 <object id="SpearTrap" left="1.0" top="13.0" rotation="downward" zorder="0.0" />
 <object id="SecretDoor" left="10.0" top="13.0" rotation="rightward" zorder="0.0" />
 <object id="Skeleton" left="17.0" top="13.0" rotation="downward" zorder="0.0" />
-<object id="LetterA" left="22.0" top="13.0" rotation="downward" zorder="0.0" />
+<object id="LetterA" left="22.0" top="13.0" rotation="downward" zorder="0.0" onSearch="The treasure chest contains 150 gold coins and The Wand of Recall. This is a Quest Treasure, the player that finds it should take the appropriate card."/>
 <object id="Door" left="4.0" top="14.0" rotation="downward" zorder="0.0" />
 <object id="Orc" left="16.0" top="14.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="20.0" top="14.0" rotation="downward" zorder="0.0" />
@@ -217,5 +217,5 @@
 <object id="SingleBlockedSquare" left="10.0" top="19.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="8.0" top="18.0" rotation="downward" zorder="1.0" />
 </board>
-<speech></speech>
+<speech intro="The Orcs of the Black Mountains have been using Fire magic in their raids. Balur, the Fire Mage, is thought to be responsible for helping them. No fire magic can harm him and the Emperor's Wizards are unable to counter his spells. You have therefore been chosen to enter his lair deep beneath Black Fire Crag. The Emperor will reward you with 150 gold coins each for Balur's dstruction."></speech>
 </quest>

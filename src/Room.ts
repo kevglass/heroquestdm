@@ -17,7 +17,43 @@ class Room {
         return (x >= this.x) && (y >= this.y) && (x < this.x + this.width) && (y < this.y + this.height);
     }
 
+    getPieceCount() : number {
+        var count : number = 0;
+
+        for (var yp = 0; yp < this.height; yp++) {
+            for (var xp = 0; xp < this.width; xp++) {
+                if (dm.getRoomAt(this.x + xp, this.y + yp) == this) {
+                    var p = dm.getPieceAt(this.x+xp, this.y+yp);
+                    if (p) {
+                        count++;
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+
     discover(dm: HeroQuestDM, log: boolean): void {
+        if ((this.getPieceCount() < 2) && (dm.special == "rolltoroom")) {
+            // roll to determine room
+            var roll = Math.floor((Math.random()*12)+1);
+            var pid : string = "Number"+roll;
+            if ((roll == 2) || (roll == 12)) {
+                pid = "Number2-12";
+            }
+            if (roll == 1) {
+                pid = "Number11";
+            }
+
+            var piece : Piece = dm.getPiece(pid);
+            dm.log("As you step through the door you teleport. You roll a "+roll+". Move to this room");
+            dm.highlightRoom(dm.getRoomAt(piece.x, piece.y));
+            dm.waitForClick();
+
+            return;
+        }
+
         if (this.discovered == true) {
             var result: string = "You find nothing of interest.";
 

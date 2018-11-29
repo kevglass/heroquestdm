@@ -61,6 +61,10 @@ var Piece = /** @class */ (function () {
             // can't make letters visible - need to tie in the speech afterwards
             return this.onDiscover;
         }
+        if (this.id.indexOf("Number") === 0) {
+            // can't make letters visible - need to tie in the speech afterwards
+            return this.onDiscover;
+        }
         if (this.id.indexOf("SecretDoor") === 0) {
             return this.onDiscover;
         }
@@ -147,7 +151,37 @@ var Room = /** @class */ (function () {
     Room.prototype.contains = function (x, y) {
         return (x >= this.x) && (y >= this.y) && (x < this.x + this.width) && (y < this.y + this.height);
     };
+    Room.prototype.getPieceCount = function () {
+        var count = 0;
+        for (var yp = 0; yp < this.height; yp++) {
+            for (var xp = 0; xp < this.width; xp++) {
+                if (dm.getRoomAt(this.x + xp, this.y + yp) == this) {
+                    var p = dm.getPieceAt(this.x + xp, this.y + yp);
+                    if (p) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    };
     Room.prototype.discover = function (dm, log) {
+        if ((this.getPieceCount() < 2) && (dm.special == "rolltoroom")) {
+            // roll to determine room
+            var roll = Math.floor((Math.random() * 12) + 1);
+            var pid = "Number" + roll;
+            if ((roll == 2) || (roll == 12)) {
+                pid = "Number2-12";
+            }
+            if (roll == 1) {
+                pid = "Number11";
+            }
+            var piece = dm.getPiece(pid);
+            dm.log("As you step through the door you teleport. You roll a " + roll + ". Move to this room");
+            dm.highlightRoom(dm.getRoomAt(piece.x, piece.y));
+            dm.waitForClick();
+            return;
+        }
         if (this.discovered == true) {
             var result = "You find nothing of interest.";
             // search
@@ -222,13 +256,16 @@ var HeroQuestDM = /** @class */ (function () {
         this.placedStairs = false;
         this.intro = false;
         this.introText = "";
+        this.leave = "";
         this.board = document.getElementById(id);
         var urlParams = new URLSearchParams(window.location.search);
         this.meta = this.loadJSON("data/piecesmeta.json");
         this.map = this.loadXML("data/HQBase_EU/" + urlParams.get("quest") + "_EU.xml");
         this.title = this.map.getElementsByTagName("quest")[0].getAttribute("name");
         this.wandering = this.map.getElementsByTagName("quest")[0].getAttribute("wandering");
+        this.special = this.map.getElementsByTagName("quest")[0].getAttribute("special");
         this.introText = this.map.getElementsByTagName("speech")[0].getAttribute("intro");
+        this.leave = this.map.getElementsByTagName("speech")[0].getAttribute("leave");
         document.getElementById("title").innerHTML = this.title;
         document.getElementById("wandering").innerHTML = "Wandering Monster: " + this.wandering;
         var objects = this.map.getElementsByTagName("object");
@@ -265,6 +302,9 @@ var HeroQuestDM = /** @class */ (function () {
         this.waitForClick();
     }
     HeroQuestDM.prototype.clicked = function () {
+        for (var i = 0; i < this.rooms.length; i++) {
+            this.rooms[i].div.style.background = "transparent";
+        }
         synth.cancel();
         this.hideClickMessage();
         this.nextStep();
@@ -274,6 +314,9 @@ var HeroQuestDM = /** @class */ (function () {
     };
     HeroQuestDM.prototype.hideClickMessage = function () {
         document.getElementById("modal").style.display = "none";
+        for (var i = 0; i < this.rooms.length; i++) {
+            this.rooms[i].div.style.background = "transparent";
+        }
     };
     HeroQuestDM.prototype.log = function (text) {
         var root = document.getElementById("loginner");
@@ -344,6 +387,22 @@ var HeroQuestDM = /** @class */ (function () {
         }
         return result;
     };
+    HeroQuestDM.prototype.getPiece = function (name) {
+        for (var i = 0; i < this.pieces.length; i++) {
+            if (this.pieces[i].id == name) {
+                return this.pieces[i];
+            }
+        }
+        return null;
+    };
+    HeroQuestDM.prototype.getPieceAt = function (x, y) {
+        for (var i = 0; i < this.pieces.length; i++) {
+            if (this.pieces[i].contains(x, y)) {
+                return this.pieces[i];
+            }
+        }
+        return null;
+    };
     HeroQuestDM.prototype.getRoomAt = function (x, y) {
         for (var i = 0; i < this.rooms.length; i++) {
             if (this.rooms[i].contains(x, y)) {
@@ -411,22 +470,31 @@ var HeroQuestDM = /** @class */ (function () {
         xmlhttp.send();
         return JSON.parse(xmlhttp.responseText);
     };
+    HeroQuestDM.prototype.highlightRoom = function (room) {
+        room.div.style.background = "rgba(0,255,0,0.5)";
+        if (!room.discovered) {
+            room.discover(this, true);
+        }
+    };
     HeroQuestDM.prototype.loadRooms = function () {
         var data = this.loadJSON("data/roomsmeta.json");
-        var hallway = new Room({ x: 0, y: 0, height: 19, width: 26 });
-        hallway.createDiv(this, this.board, this.bx, this.by, this.tileWidth, this.tileHeight);
+        this.hallway = new Room({ x: 0, y: 0, height: 19, width: 26 });
+        this.hallway.createDiv(this, this.board, this.bx, this.by, this.tileWidth, this.tileHeight);
         for (var i = 0; i < data.length; i++) {
             var room = new Room(data[i]);
             room.createDiv(this, this.board, this.bx, this.by, this.tileWidth, this.tileHeight);
             this.rooms.push(room);
         }
-        this.rooms.push(hallway);
+        this.rooms.push(this.hallway);
     };
     return HeroQuestDM;
 }());
 var synth = window.speechSynthesis;
 window.onbeforeunload = function () {
     synth.cancel();
+    if (dm.leave) {
+        dm.log(dm.leave);
+    }
 };
 var dm = new HeroQuestDM("board");
 //# sourceMappingURL=dm.js.map

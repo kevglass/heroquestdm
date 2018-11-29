@@ -3,7 +3,7 @@
 "-//org.lightless//HeroScribe Quest 1.4//EN"
 "http://lightless.org/files/xml/quest-1.4.dtd">
 
-<quest name="Race Against Time" region="Europe" version="1.0" width="1" height="1">
+<quest name="Race Against Time" region="Europe" version="1.0" width="1" height="1" wandering="Fimir">
 <board>
 <dark left="6" top="2" width="1" height="1" />
 <dark left="6" top="3" width="1" height="1" />
@@ -263,7 +263,7 @@
 <object id="SingleBlockedSquare" left="6.0" top="10.0" rotation="downward" zorder="0.0" />
 <object id="TreasureChest" left="7.0" top="11.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="5.0" top="12.0" rotation="rightward" zorder="0.0" />
-<object id="LetterB" left="7.0" top="12.0" rotation="downward" zorder="0.0" />
+<object id="LetterB" left="7.0" top="12.0" rotation="downward" zorder="0.0" onSearch="The treasure chests each contain 100 gold coins"/>
 <object id="TreasureChest" left="7.0" top="13.0" rotation="leftward" zorder="0.0" />
 <object id="Orc" left="19.0" top="13.0" rotation="downward" zorder="0.0" />
 <object id="Orc" left="20.0" top="13.0" rotation="downward" zorder="0.0" />
@@ -286,13 +286,13 @@
 <object id="Table" left="6.0" top="17.0" rotation="downward" zorder="0.0" />
 <object id="Orc" left="17.0" top="17.0" rotation="downward" zorder="0.0" />
 <object id="Door" left="18.0" top="17.0" rotation="rightward" zorder="0.0" />
-<object id="LetterA" left="20.0" top="17.0" rotation="downward" zorder="0.0" />
+<object id="LetterA" left="20.0" top="17.0" rotation="downward" zorder="0.0" info="start"/>
 <object id="Door" left="21.0" top="17.0" rotation="rightward" zorder="0.0" />
 <object id="Orc" left="23.0" top="17.0" rotation="downward" zorder="0.0" />
 <object id="Goblin" left="18.0" top="18.0" rotation="downward" zorder="0.0" />
 <object id="Goblin" left="22.0" top="18.0" rotation="downward" zorder="0.0" />
-<object id="SecretDoor" left="20.0" top="19.0" rotation="downward" zorder="0.0" />
+<object id="SecretDoor" left="20.0" top="18.0" rotation="upward" zorder="0.0" />
 <object id="SingleBlockedSquare" left="22.0" top="19.0" rotation="downward" zorder="0.0" />
 </board>
-<speech></speech>
+<speech intro="A guide has led you into a dungeon that is rumoured to hold a great secret. He has led you down many dark corridors and finally you find yourself in a room with three doors. Suddenly the guide puts out his torch and in the darkness you hear him laugh. Farewell my Heroes he sneers as he makes his escape. You realize to your horror that it is a trap! You must escape or perish in this dark forgotten hole."></speech>
 </quest>
